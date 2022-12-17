@@ -27,7 +27,7 @@ export class Dummy {
   @Field(() => GraphQLDecimal, { nullable: false })
   decimal!: Decimal;
 
-  @Field(() => [GraphQLDecimal], { nullable: true })
+  @Field(() => [GraphQLDecimal], { nullable: false })
   decimals!: Array<Decimal>;
 
   @Field(() => String, { nullable: true })
@@ -36,6 +36,6 @@ export class Dummy {
   @Field(() => GraphQLJSON, { nullable: true })
   json!: any | null;
 
-  @Field(() => [String], { nullable: true })
+  @Field(() => [String], { nullable: false })
   friends!: Array<string>;
 }

@@ -1,18 +1,18 @@
 {
-  "name": "prisma-nestjs-graphql",
-  "version": "0.0.0-dev",
+  "name": "@leomotors/prisma-nestjs-graphql",
+  "version": "18.0.0",
   "license": "MIT",
   "description": "Generate object types, inputs, args, etc. from prisma schema file for usage with @nestjs/graphql module",
   "main": "index.js",
   "bin": "bin.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/unlight/nestjs-graphql-prisma.git"
+    "url": "git+https://github.com/Leomotors/prisma-nestjs-graphql.git"
   },
   "bugs": {
-    "url": "https://github.com/unlight/nestjs-graphql-prisma/issues"
+    "url": "https://github.com/Leomotors/prisma-nestjs-graphql/issues"
   },
-  "homepage": "https://github.com/unlight/nestjs-graphql-prisma#readme",
+  "homepage": "https://github.com/Leomotors/prisma-nestjs-graphql#readme",
   "keywords": [
     "nestjs",
     "graphql",
@@ -21,22 +21,22 @@
     "nestjs-graphql"
   ],
   "scripts": {
-    "test": "npm run eslint && npm run tscheck && npm run test:cov",
+    "test": "pnpm run eslint && pnpm run tscheck && pnpm run test:cov",
     "mocha": "node node_modules/mocha/bin/mocha",
-    "test:r": "npm run mocha -- -r ts-node/register --no-timeouts src/**/*.spec.ts",
-    "test:cov": "c8 --reporter text --exclude \"**/*.spec.ts\" --exclude \"**/test/**\"  npm run test:r",
-    "test:w": "npm run test:r -- --watch-files src --watch",
+    "test:r": "pnpm run mocha -- -r ts-node/register --no-timeouts src/**/*.spec.ts",
+    "test:cov": "c8 --reporter text --exclude \"**/*.spec.ts\" --exclude \"**/test/**\"  pnpm run test:r",
+    "test:w": "pnpm run test:r -- --watch-files src --watch",
     "test:d": "ndb -r @swc/register node_modules/mocha/bin/_mocha --no-timeouts --watch-files src/**/*.ts --watch src/**/*.spec.ts",
     "tscheck": "tsc --noEmit",
-    "tscheck:w": "npm run tscheck -- --watch",
+    "tscheck:w": "pnpm run tscheck -- --watch",
     "eslint": "node node_modules/eslint/bin/eslint \"src/**/*.{ts,tsx}\"",
-    "eslint:w": "watchexec -w src \"npm run eslint\"",
-    "eslint:fix": "npm run eslint -- --fix",
+    "eslint:w": "watchexec -w src \"pnpm run eslint\"",
+    "eslint:fix": "pnpm run eslint -- --fix",
     "build": "sh Taskfile bundle",
     "prisma:g": "node node_modules/prisma/build/index.js generate",
     "format": "npx prettier ./@generated --write",
-    "regen": "rm -rf @generated && npm run prisma:g && npm run format",
-    "rt": "npm run regen && npm test",
+    "regen": "rm -rf @generated && pnpm run prisma:g && pnpm run format",
+    "rt": "pnpm run regen && npm test",
     "example": "node-dev example/main.ts",
     "clean_cache": "rm -rf node_modules/.cache",
     "compatibilty_check": "sh Taskfile compatibilty_check",
@@ -124,7 +124,6 @@
     "temp-dir": "2.X",
     "ts-node": "^10.9.1",
     "tslib": "^2.4.1",
-    "typescript": "^4.9.4",
-    "watchexec-bin": "^1.0.0"
+    "typescript": "^4.9.4"
   }
 }

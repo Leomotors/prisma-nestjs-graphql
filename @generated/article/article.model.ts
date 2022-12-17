@@ -24,7 +24,7 @@ export class Article {
   @Field(() => String, { nullable: false })
   body!: string;
 
-  @Field(() => [Tag], { nullable: true })
+  @Field(() => [Tag], { nullable: false })
   tags?: Array<Tag>;
 
   @Field(() => Date, { nullable: false })
@@ -42,10 +42,10 @@ export class Article {
   @Field(() => String, { nullable: false })
   authorId!: string;
 
-  @Field(() => [User], { nullable: true })
+  @Field(() => [User], { nullable: false })
   favoritedBy?: Array<User>;
 
-  @Field(() => [Comment], { nullable: true })
+  @Field(() => [Comment], { nullable: false })
   comments?: Array<Comment>;
 
   @Field(() => Boolean, { nullable: true, defaultValue: true })

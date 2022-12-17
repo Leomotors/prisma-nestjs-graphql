@@ -172,7 +172,7 @@ export function modelOutputType(outputType: OutputType, args: EventArguments) {
           isList ? `() => [${graphqlType}]` : `() => ${graphqlType}`,
           JSON5.stringify({
             ...settings?.fieldArguments(),
-            nullable: Boolean(field.isNullable),
+            nullable: Boolean(field.isNullable && !isList),
             defaultValue: ['number', 'string', 'boolean'].includes(
               typeof modelField?.default,
             )
